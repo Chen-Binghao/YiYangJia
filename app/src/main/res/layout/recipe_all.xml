@@ -225,336 +225,358 @@
                 android:layout_marginTop="10dp"/>
         </RelativeLayout>
         
-        <LinearLayout
-            android:id="@+id/l_recipe"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:gravity="center_vertical"
-                android:text="食谱营养总表"
-                android:textColor="@color/black33"
-                android:textSize="18sp" />
 
-            <TableLayout
+
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_centerVertical="true"
+                android:layout_weight="0"
+                android:orientation="vertical">
 
-                <TableRow
+                <LinearLayout
+                    android:id="@+id/l_recipe"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView55"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="3dp"
-                        app:srcCompat="@drawable/cal" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:text="食谱营养总表"
+                    android:textColor="@color/black33"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="能量：" />
-
-                    <TextView
-                        android:id="@+id/cal_recipe"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:hint="0"
-                        android:inputType="number"
-                        android:maxLength="5"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/black33"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="千卡" />
-                </TableRow>
-
-                <TableRow
+                <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
 
-                    <ImageView
-                        android:id="@+id/imageView66"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="3dp"
-                        app:srcCompat="@drawable/pro" />
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="蛋白质：" />
+                        <ImageView
+                            android:id="@+id/imageView55"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="3dp"
+                            app:srcCompat="@drawable/cal" />
 
-                    <TextView
-                        android:id="@+id/pro_recipe"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:hint="0"
-                        android:inputType="number"
-                        android:maxLength="5"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/black33"
-                        android:textSize="14sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="能量：" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="克" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/cal_recipe"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black33"
+                            android:textSize="14sp"/>
 
-                <TableRow
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="千卡" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imageView66"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="3dp"
+                            app:srcCompat="@drawable/pro" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="蛋白质：" />
+
+                        <TextView
+                            android:id="@+id/pro_recipe"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black33"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="克" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imageView77"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="3dp"
+                            app:srcCompat="@drawable/fat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="脂肪：" />
+
+                        <TextView
+                            android:id="@+id/fat_recipe"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black33"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="克" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imageView88"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="3dp"
+                            app:srcCompat="@drawable/carb" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="碳水化合物：" />
+
+                        <TextView
+                            android:id="@+id/ch2o_recipe"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:hint="0"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black33"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="克" />
+                    </TableRow>
+
+                </TableLayout>
+
+
+
+
+                <TableLayout
+                    android:id="@+id/table"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
 
-                    <ImageView
-                        android:id="@+id/imageView77"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="3dp"
-                        app:srcCompat="@drawable/fat" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="脂肪：" />
-
-                    <TextView
-                        android:id="@+id/fat_recipe"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:hint="0"
-                        android:inputType="number"
-                        android:maxLength="5"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/black33"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="克" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageView88"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="3dp"
-                        app:srcCompat="@drawable/carb" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="碳水化合物：" />
-
-                    <TextView
-                        android:id="@+id/ch2o_recipe"
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:hint="0"
-                        android:inputType="number"
-                        android:maxLength="5"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/black33"
-                        android:textSize="14sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="克" />
-                </TableRow>
-
-            </TableLayout>
-
-            <TableLayout
-                android:id="@+id/table"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <TableRow
-                    android:id="@+id/table1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
+                    <TableRow
+                        android:id="@+id/table1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
 
 
-                    <TextView
-                        android:id="@+id/foodname1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="food1" />
+                        <TextView
+                            android:id="@+id/foodname1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="food1" />
 
-                    <TextView
-                        android:id="@+id/foodweight1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"/>
+                        <TextView
+                            android:id="@+id/foodweight1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="克" />
-                </TableRow>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="克" />
+                    </TableRow>
 
-                <TableRow
-                    android:id="@+id/table2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
-
-
-                    <TextView
-                        android:id="@+id/foodname2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="food2" />
-
-                    <TextView
-                        android:id="@+id/foodweight2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="克" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/table3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
+                    <TableRow
+                        android:id="@+id/table2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
 
 
-                    <TextView
-                        android:id="@+id/foodname3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="food3" />
+                        <TextView
+                            android:id="@+id/foodname2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="food2" />
 
-                    <TextView
-                        android:id="@+id/foodweight3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"/>
+                        <TextView
+                            android:id="@+id/foodweight2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="克" />
-                </TableRow>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="克" />
+                    </TableRow>
 
-                <TableRow
-                    android:id="@+id/table4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
-
-
-                    <TextView
-                        android:id="@+id/foodname4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="food4" />
-
-                    <TextView
-                        android:id="@+id/foodweight4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="克" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/table5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:gravity="center">
+                    <TableRow
+                        android:id="@+id/table3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
 
 
-                    <TextView
-                        android:id="@+id/foodname5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:text="food5" />
+                        <TextView
+                            android:id="@+id/foodname3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="food3" />
 
-                    <TextView
-                        android:id="@+id/foodweight5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"/>
+                        <TextView
+                            android:id="@+id/foodweight3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black33"
-                        android:layout_marginStart="3dp"
-                        android:text="克" />
-                </TableRow>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="克" />
+                    </TableRow>
 
-            </TableLayout>
+                    <TableRow
+                        android:id="@+id/table4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
 
 
-        </LinearLayout>
+                        <TextView
+                            android:id="@+id/foodname4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="food4" />
+
+                        <TextView
+                            android:id="@+id/foodweight4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="克" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/table5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:gravity="center">
+
+
+                        <TextView
+                            android:id="@+id/foodname5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:text="food5" />
+
+                        <TextView
+                            android:id="@+id/foodweight5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black33"
+                            android:layout_marginStart="3dp"
+                            android:text="克" />
+                    </TableRow>
+
+
+                </TableLayout>
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+
+
         
             
 
