@@ -11,13 +11,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="0dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -32,7 +32,7 @@
             <TextView
                 android:id="@+id/info_phone"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/white"
                 android:gravity="center_vertical|end"
@@ -44,7 +44,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -59,7 +59,7 @@
             <EditText
                 android:id="@+id/info_nickname"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -75,7 +75,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -90,7 +90,7 @@
             <EditText
                 android:id="@+id/info_birthday"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -105,7 +105,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -120,7 +120,7 @@
             <EditText
                 android:id="@+id/info_gender"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -135,7 +135,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -150,7 +150,7 @@
             <EditText
                 android:id="@+id/info_height"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -167,7 +167,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -182,7 +182,7 @@
             <EditText
                 android:id="@+id/info_weight"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -214,7 +214,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -234,7 +234,7 @@
             <EditText
                 android:id="@+id/cal_input"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -252,7 +252,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -272,7 +272,7 @@
                 <EditText
                     android:id="@+id/pro_input"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="40dp"
                     android:layout_marginEnd="16dp"
                     android:layout_weight="1"
                     android:background="@color/white"
@@ -289,7 +289,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -309,7 +309,7 @@
             <EditText
                 android:id="@+id/fat_input"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -326,7 +326,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -346,7 +346,7 @@
             <EditText
                 android:id="@+id/ch2o_input"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
                 android:background="@color/white"
@@ -368,7 +368,7 @@
         android:id="@+id/button_update_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/round_button_purple"
         android:text="保  存"
         android:textColor="@color/white"

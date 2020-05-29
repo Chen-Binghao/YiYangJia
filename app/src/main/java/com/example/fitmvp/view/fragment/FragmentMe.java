@@ -70,7 +70,7 @@ public class FragmentMe extends BaseFragment<MePresenter> implements MeContract.
        textGender = view.findViewById(R.id.text_gender);
        textHeight = view.findViewById(R.id.text_height);
        textWeight = view.findViewById(R.id.text_weight);
-       userpic=view.findViewById(R.id.image_photo);
+//       userpic=view.findViewById(R.id.image_photo);
        // 设置数据
        setuserpic();
        updateInfo();
@@ -111,7 +111,7 @@ public class FragmentMe extends BaseFragment<MePresenter> implements MeContract.
        logout.setOnClickListener(this);
        toSetting.setOnClickListener(this);
        toReport.setOnClickListener(this);
-       userpic.setOnClickListener(this);
+//       userpic.setOnClickListener(this);
    }
 
     @Override
@@ -126,9 +126,9 @@ public class FragmentMe extends BaseFragment<MePresenter> implements MeContract.
             case R.id.button_report:
                 toReport();
                 break;
-            case R.id.image_photo:
-                cuserpic(view);
-                break;
+//            case R.id.image_photo:
+//                cuserpic(view);
+//                break;
         }
     }
 

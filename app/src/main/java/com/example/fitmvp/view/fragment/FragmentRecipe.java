@@ -103,7 +103,7 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
         //gen_recipe=view.findViewById(R.id.l_gen);
         mContext=getActivity();
         button_gen=view.findViewById(R.id.button_gen_recipe);
-        progressbar=view.findViewById(R.id.gen_progress);
+//        progressbar=view.findViewById(R.id.gen_progress);
         caltext=view.findViewById(R.id.cal_input);
         fattext=view.findViewById(R.id.fat_input);
         protext=view.findViewById(R.id.pro_input);
@@ -133,7 +133,7 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
     }
 
     private void showButton() {
-        progressbar.setVisibility(View.INVISIBLE);
+//        progressbar.setVisibility(View.INVISIBLE);
         button_gen.setVisibility(View.VISIBLE);
         recipe.setVisibility(View.INVISIBLE);
         table.setVisibility(View.INVISIBLE);
@@ -296,6 +296,8 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
                                 fatres+=food_fat[i]*food_wei[i]/100;
                             }
 
+                            button_gen.setVisibility(View.INVISIBLE);
+//                            progressbar.setVisibility(View.INVISIBLE);
                             recipe.setVisibility(View.VISIBLE);
                             table.setVisibility(View.VISIBLE);
 

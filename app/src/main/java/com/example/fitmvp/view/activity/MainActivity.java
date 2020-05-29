@@ -164,8 +164,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void gotResult(int i, String s) {
                 if(i==0){
-                    ImageView imageView=findViewById(R.id.image_photo);
-                    imageView.setImageBitmap(userpic);
+//                    ImageView imageView=findViewById(R.id.image_photo);
+//                    imageView.setImageBitmap(userpic);
                 }
                 else{
                     // 报错
