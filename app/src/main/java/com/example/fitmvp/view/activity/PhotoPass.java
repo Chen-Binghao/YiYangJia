@@ -376,7 +376,7 @@ public class PhotoPass extends AppCompatActivity {
         // 传项目中图片
         intent.putExtra("picb",picb);
         titleView.setText("");
-        headImage.setImageResource(R.drawable.yqc);
+//        headImage.setImageResource(R.drawable.yqc);
         startActivity(intent);
     }
 

@@ -255,7 +255,6 @@ public class PhotoShow extends AppCompatActivity{
                 .subscribe(new CommonObserver<String>() {
                     @Override
                     public void onNext(String response) {
-                        System.out.println(response);//返回
                         // 更新主页和记录页面
                         updateRecords();
                         int tmp=Integer.parseInt(response);
@@ -317,8 +316,8 @@ public class PhotoShow extends AppCompatActivity{
         intent.putExtra("fat1",fat1);
         intent.putExtra("carbo1",carbo1);
         wait_show.setVisibility(View.INVISIBLE);
-        //startActivity(intent);
-        finish();
+        startActivity(intent);
+//        finish();
     }
 
     // 发送更新主页和记录页面的广播

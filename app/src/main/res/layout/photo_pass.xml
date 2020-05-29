@@ -44,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:backgroundTint="#00FDFDFD"
-        app:srcCompat="@drawable/yqc" />
+        />
 
     <TextView
         android:layout_centerHorizontal="true"
