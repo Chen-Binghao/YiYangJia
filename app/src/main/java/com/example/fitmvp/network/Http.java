@@ -94,7 +94,7 @@ public class Http {
                             .build();
                 }
                 if (retrofit2 == null){
-                    String baseUrl = "http://192.168.2.105:8888/";
+                    String baseUrl = "http://202.120.38.100:8000/";
                     // 获取retrofit的实例
                     retrofit2 = new Retrofit
                             .Builder()
