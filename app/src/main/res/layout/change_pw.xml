@@ -5,15 +5,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back">
+    android:background="@drawable/back_white">
 
 
         <ImageView
             android:id="@+id/changePwIcon"
         android:layout_width="154dp"
+            android:layout_marginTop="100dp"
         android:layout_height="179dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/icon1" />
+        app:srcCompat="@drawable/diet" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

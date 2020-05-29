@@ -5,14 +5,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back">
+    android:background="@drawable/back_white">
     <ImageView
         android:id="@+id/loginIcon"
         android:layout_width="154dp"
         android:layout_height="179dp"
+
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/icon1"
-        android:layout_marginTop="20dp"/>
+        app:srcCompat="@drawable/diet"
+        android:layout_marginTop="100dp"/>
 <LinearLayout
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
