@@ -29,6 +29,7 @@ import java.util.Locale;
 public class FoodShare extends AppCompatActivity {
     Button save;
     Button share;
+    Button back;
     String name;
     Double cal;
     Double protein;
@@ -57,6 +58,7 @@ public class FoodShare extends AppCompatActivity {
         byte[] fpic = intent.getByteArrayExtra("pic1");
         save = findViewById(R.id.savephoto1);
         share=findViewById(R.id.sharephoto1);
+        back=findViewById(R.id.back_to_main);
         foodImage = PictureUtil.Bytes2Bitmap(fpic);
         if(type_share==1){
             spic=findViewById(R.id.share_pic);
@@ -95,6 +97,14 @@ public class FoodShare extends AppCompatActivity {
                System.out.println("ok");
                 save.setVisibility(View.INVISIBLE);
                 share.setVisibility(View.VISIBLE);
+
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodShare.this,MainActivity.class);
+                startActivity(intent);
 
             }
         });

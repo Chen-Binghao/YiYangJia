@@ -317,7 +317,7 @@ public class PhotoShow extends AppCompatActivity{
         intent.putExtra("fat1",fat1);
         intent.putExtra("carbo1",carbo1);
         wait_show.setVisibility(View.INVISIBLE);
-        //startActivity(intent);
+        startActivity(intent);
         finish();
     }
 

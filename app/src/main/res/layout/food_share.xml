@@ -9,7 +9,7 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="350dp"
-        android:layout_height="650dp"
+        android:layout_height="670dp"
         android:layout_gravity="center_horizontal">
 <RelativeLayout
     android:id="@+id/share_view1"
@@ -192,6 +192,19 @@
         android:text="保存并分享"
         android:background="@drawable/round_button_blue"
         />
+
+        <Button
+            android:id="@+id/back_to_main"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/savephoto1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"
+            android:text="返回至主界面"
+            android:background="@drawable/round_button_blue"
+            />
+
         <Button
             android:id="@+id/sharephoto1"
             android:layout_width="150dp"
@@ -204,6 +217,7 @@
             android:visibility="invisible"
             />
     </RelativeLayout>
+
 
 </LinearLayout>
 </ScrollView>
