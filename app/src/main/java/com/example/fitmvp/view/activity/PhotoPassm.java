@@ -63,7 +63,7 @@ public class PhotoPassm extends AppCompatActivity {
 
     private final int PERMISSION_READ_AND_CAMERA =0;//读和相机权限
     private final int PERMISSION_READ =1;//读取权限
-//盘子种类
+    //盘子种类
     private TextView type_name = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -295,7 +295,7 @@ public class PhotoPassm extends AppCompatActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mUriPath);
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
         //注意：此处应设置return-data为false，如果设置为true，是直接返回bitmap格式的数据，耗费内存。设置为false，然后，设置裁剪完之后保存的路径，即：intent.putExtra(MediaStore.EXTRA_OUTPUT, uriPath);
-     // intent.putExtra("return-data", true);
+        // intent.putExtra("return-data", true);
         intent.putExtra("return-data", false);
 //        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivityForResult(intent, CODE_RESULT_REQUEST);
@@ -340,19 +340,19 @@ public class PhotoPassm extends AppCompatActivity {
         Integer h=50;
 
         for(int i=0;i<4;i++){
-                            int j=i+1;
-                            intent.putExtra("x"+j,x);
-                            intent.putExtra("y"+j,y);
-                            intent.putExtra("w"+j,w);
-                            intent.putExtra("h"+j,h);
-                            String foodname="food";
-                            intent.putExtra("food"+j,foodname+j);//把菜名放进
-                        }
+            int j=i+1;
+            intent.putExtra("x"+j,x);
+            intent.putExtra("y"+j,y);
+            intent.putExtra("w"+j,w);
+            intent.putExtra("h"+j,h);
+            String foodname="food";
+            intent.putExtra("food"+j,foodname+j);//把菜名放进
+        }
         if(integer==2){notes.setText("圆盘食物");}
-                        else{notes.setText("方盘食物");}
+        else{notes.setText("方盘食物");}
         intent.putExtra("type",integer);
-                        intent.putExtra("pic",picb);
-                        startActivity(intent);
+        intent.putExtra("pic",picb);
+        startActivity(intent);
 //        Http.getHttpService(2).multifood(tel,obj_type,pic,integer)
 //                .compose(new ThreadTransformer<PhotoTypetBean>())
 //                .subscribe(new CommonObserver<PhotoTypetBean>() {

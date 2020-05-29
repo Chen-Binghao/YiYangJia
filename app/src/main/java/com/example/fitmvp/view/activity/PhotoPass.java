@@ -55,7 +55,7 @@ public class PhotoPass extends AppCompatActivity {
     /* 头像文件 */
     private static final String IMAGE_FILE_NAME = "output_image.jpg";
     private static final String CROP_IMAGE_FILE_NAME = "fit_crop.jpg";
-//    /* 请求识别码 */
+    //    /* 请求识别码 */
     private static final int CODE_GALLERY_REQUEST = 0xa0;
     private static final int CODE_CAMERA_REQUEST = 0xa1;
     private static final int CODE_RESULT_REQUEST = 0xa2;
@@ -371,9 +371,9 @@ public class PhotoPass extends AppCompatActivity {
     //获取详细能量数据接口
     public void getInfo(byte[] picb){
         Intent intent = new Intent(PhotoPass.this, PhotoShow.class);
-                        // 传参
+        // 传参
         intent.putExtra("foodname",Foodname);
-                        // 传项目中图片
+        // 传项目中图片
         intent.putExtra("picb",picb);
         titleView.setText("");
         headImage.setImageResource(R.drawable.yqc);

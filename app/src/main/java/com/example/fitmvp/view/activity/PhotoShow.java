@@ -123,7 +123,7 @@ public class PhotoShow extends AppCompatActivity{
         String haha2="100";
         et_pressure.setText(haha2);
         Integer kj2=(Integer.valueOf(haha2))*energy/100;String kjs2=kj2.toString();
-      //  kj_pressure.setText(kjs2);
+        //  kj_pressure.setText(kjs2);
         sb_pressure.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -133,7 +133,7 @@ public class PhotoShow extends AppCompatActivity{
                 String miao="" + String.valueOf(a);
                 String ju=""+String.valueOf(q);
                 et_pressure.setText(miao);// 50为进度条滑到最小值时代表的数值
-               // kj_pressure.setText(ju);
+                // kj_pressure.setText(ju);
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {}
@@ -189,7 +189,7 @@ public class PhotoShow extends AppCompatActivity{
     }
     //这里是oncreate结尾
 
-//    @Override
+    //    @Override
 //    public void onFocusChange(View v,boolean hasFocus){
 //        if (hasFocus) {
 //            showListPopulWindow(); //调用显示PopuWindow 函数
@@ -266,20 +266,20 @@ public class PhotoShow extends AppCompatActivity{
 
         toSave();
     }
-public void toSave(){
-    byte[] pic1=PictureUtil.Bitmap2Bytes(bitmap);
-    Intent intent = new Intent(PhotoShow.this,FoodShare.class);
-    intent.putExtra("typeShare",1);
-    intent.putExtra("pic1",pic1);
-    intent.putExtra("name",show_name);
-    intent.putExtra("cal1",cal);
-    intent.putExtra("protein1",protein1);
-    intent.putExtra("fat1",fat1);
-    intent.putExtra("carbo1",carbo1);
-    wait_show.setVisibility(View.INVISIBLE);
-    startActivity(intent);
-    finish();
-}
+    public void toSave(){
+        byte[] pic1=PictureUtil.Bitmap2Bytes(bitmap);
+        Intent intent = new Intent(PhotoShow.this,FoodShare.class);
+        intent.putExtra("typeShare",1);
+        intent.putExtra("pic1",pic1);
+        intent.putExtra("name",show_name);
+        intent.putExtra("cal1",cal);
+        intent.putExtra("protein1",protein1);
+        intent.putExtra("fat1",fat1);
+        intent.putExtra("carbo1",carbo1);
+        wait_show.setVisibility(View.INVISIBLE);
+        startActivity(intent);
+        finish();
+    }
 
     // 发送更新主页和记录页面的广播
     private void updateRecords(){
@@ -287,12 +287,12 @@ public void toSave(){
         LocalBroadcastManager.getInstance(this).sendBroadcast(friendInfoIntent);
     }
 
-//    public void shareFriends(Uri uri, String name) {
-public void shareFriends() {
+    //    public void shareFriends(Uri uri, String name) {
+    public void shareFriends() {
         Intent share_intent = new Intent();
         share_intent.setAction(Intent.ACTION_SEND);//设置分享行为
         share_intent.setType("image/*");  //设置分享内容的类型
-       share_intent.putExtra(Intent.EXTRA_STREAM, urithis_s);
+        share_intent.putExtra(Intent.EXTRA_STREAM, urithis_s);
         try {
             share_intent = Intent.createChooser(share_intent, "dialogTitle");
             startActivity(share_intent);

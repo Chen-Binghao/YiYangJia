@@ -14,6 +14,26 @@ import java.util.Comparator;
 import java.util.List;
 
 public class RecordModel extends BaseModel implements RecordContract.Model {
+    private String chName[] = {"奶酪蛋糕", "鸡翅", "蒸包", "炒饭", "汉堡", "酸辣汤", "冰激凌", "牛排", "寿司", "糖醋排骨", "炒花菜", "米饭", "紫菜汤"};
+    private String enName[] = {"cheesecake", "chicken_wings", "dumplings", "fried_rice", "hamburger", "hot_and_sour_soup", "ice_cream", "steak", "sushi", "tangcupaigu", "chaohuacai", "mifan", "zicaitang"};
+
+    public String transFoodNameToEn(String foodName) {
+        for (int i=0; i<enName.length; i++) {
+            if (foodName.equals(chName[i])) {
+                return enName[i];
+            }
+        }
+        return "None";
+    }
+
+    public String transFoodNameToCh(String foodName) {
+        for (int i=0; i<enName.length; i++) {
+            if (foodName.equals(enName[i])) {
+                return chName[i];
+            }
+        }
+        return "None";
+    }
     @Override
     public void getAllRecords(final Callback callback) {
         SpUtils spUtils = new SpUtils();
@@ -43,6 +63,9 @@ public class RecordModel extends BaseModel implements RecordContract.Model {
                                     return 0;
                                 }
                             });
+                            for (RecordBean recordBean:list) {
+                                recordBean.setFood(transFoodNameToCh(recordBean.getFood()));
+                            }
                             callback.success(list);
                         }
 
