@@ -1,48 +1,33 @@
 package com.example.fitmvp.view.fragment;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitmvp.R;
-import com.example.fitmvp.base.BaseAdapter;
 import com.example.fitmvp.base.BaseFragment;
-import com.example.fitmvp.bean.RecordBean;
+import com.example.fitmvp.bean.Recipebean;
 import com.example.fitmvp.contract.RecipeContract;
+import com.example.fitmvp.exception.ApiException;
+import com.example.fitmvp.network.Http;
+import com.example.fitmvp.observer.CommonObserver;
 import com.example.fitmvp.presenter.RecipePresenter;
-import com.example.fitmvp.presenter.RecordPresenter;
+import com.example.fitmvp.transformer.ThreadTransformer;
 import com.example.fitmvp.utils.LogUtils;
 import com.example.fitmvp.utils.SpUtils;
-import com.example.fitmvp.view.activity.MainActivity;
-import com.example.fitmvp.view.activity.RecordDetailActivity;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import butterknife.Bind;
 
 public class FragmentRecipe extends BaseFragment<RecipePresenter> implements RecipeContract.View {
 /*    @Bind(R.id.cal_input)
@@ -88,10 +73,17 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
     private String oldfat;
     private String oldpro;
     private String oldch2o;
-    private String calres;
-    private String fatres;
-    private String prores;
-    private String ch2ores;
+    private int calres;
+    private int fatres;
+    private int prores;
+    private int ch2ores;
+    private String[] food_name;
+    private double[] food_cal;
+    private double[] food_pro;
+    private double[] food_ch2o;
+    private double[] food_fat;
+    private double[] food_wei;
+    private int food_num;
 
 
     @Override
@@ -174,25 +166,39 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
 
     @Override
     public void onClick(View view){
+        int t = 0;
         switch (view.getId()){
             case R.id.button_gen_recipe:
                 getrecipe(view);
                 break;
             case R.id.table1:
+                t=0;
             case R.id.table2:
+                t=1;
             case R.id.table3:
+                t=2;
             case R.id.table4:
+                t=3;
             case R.id.table5:
-                showPopupWindow(view);
+                t = 4;
+                showPopupWindow(view,food_cal[t]*food_wei[t]/100,food_pro[t]*food_wei[t]/100,food_fat[t]*food_wei[t]/100,food_ch2o[t]*food_wei[t]/100);
                 break;
         }
     }
 
-    private void showPopupWindow(View view) {
+    private void showPopupWindow(View view,double cal,double pro,double fat,double ch2o) {
 
         // 一个自定义的布局，作为显示的内容
         View contentView = LayoutInflater.from(mContext).inflate(
                 R.layout.pop_window, null);
+        TextView cal_pop = contentView.findViewById(R.id.cal_input);
+        cal_pop.setText(cal+"");
+        TextView pro_pop = contentView.findViewById(R.id.pro_input);
+        pro_pop.setText(pro+"");
+        TextView fat_pop = contentView.findViewById(R.id.fat_input);
+        fat_pop.setText(fat+"");
+        TextView ch2o_pop = contentView.findViewById(R.id.ch2o_input);
+        ch2o_pop.setText(ch2o+"");
         // 设置按钮的点击事件
         /*Button button = (Button) contentView.findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
@@ -228,25 +234,75 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
                 R.drawable.shape_corner));
 
         // 设置好参数之后再show
+        int[] location = new int[2];
+        view.getLocationOnScreen(location);
+        //在控件上方显示
+        contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        int popupHeight = contentView.getMeasuredHeight();
+        int popupWidth = contentView.getMeasuredWidth();
+        popupWindow.showAtLocation(view, Gravity.NO_GRAVITY, (location[0]) - popupWidth / 2, location[1] - popupHeight);
         popupWindow.showAsDropDown(view);
 
     }
 
     private void getrecipe(View view) {
+
+
+        calres=0;
+        prores=0;
+        ch2ores=0;
+        fatres=0;
+        SpUtils spUtils = new SpUtils();
+        String tel = (String)spUtils.get("phone","");
+        if(tel==null || tel.equals("")){
+            return;
+        }
+        else{
+            Http.getHttpService(1).getRecipe(tel)
+                    .compose(new ThreadTransformer<List<Recipebean>>())
+                    .subscribe(new CommonObserver<List<Recipebean>>() {
+                        @Override
+                        public void onNext(List<Recipebean> list) {
+                            // 按时间降序
+                            food_num =list.size();
+                            food_cal=new double[food_num];
+                            food_pro=new double[food_num];
+                            food_ch2o=new double[food_num];
+                            food_fat=new double[food_num];
+                            food_wei=new double[food_num];
+                            food_name=new String[food_num];
+                            for (int i=0;i<list.size();i++) {
+                                Log.i("recipe", "name: "+list.get(i).getName());
+                                Log.i("recipe", "cal: "+list.get(i).getCalory());
+                                Log.i("recipe", "fat: "+list.get(i).getFat());
+                                Log.i("recipe", "pro: "+list.get(i).getProtein());
+                                Log.i("recipe", "ch2o: "+list.get(i).getCarbohydrate());
+                                Log.i("recipe", "wei: "+list.get(i).getWeight());
+                                food_cal[i]=list.get(i).getCalory();
+                                food_fat[i]=list.get(i).getFat();
+                                food_ch2o[i]=list.get(i).getCarbohydrate();
+                                food_pro[i]=list.get(i).getProtein();
+                                food_wei[i]=list.get(i).getWeight();
+                                food_name[i]=list.get(i).getName();
+                                calres+=food_cal[i];
+                                prores+=food_pro[i];
+                                ch2ores+=food_ch2o[i];
+                                fatres+=food_fat[i];
+                            }
+                        }
+
+                        @Override
+                        protected void onError(ApiException e) {
+                            LogUtils.e("onError",e.message);
+                            return;
+                        }
+                    });
+        }
+
         button_gen.setVisibility(View.INVISIBLE);
         progressbar.setVisibility(View.VISIBLE);
-        ///////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////
-        ////////////获取数据///////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////
-        calres=1+"";
-        prores=2+"";
-        fatres=3+"";
-        ch2ores=4+"";
-        int foodnum = 3;
+
+
         String[] foodnamestring={"米饭","排骨","青菜"};
         int[] foodweightnum={1,2,3};
 
@@ -256,20 +312,20 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
         table.setVisibility(View.VISIBLE);
 
 
-        calrecipe.setText(calres);
-        prorecipe.setText(prores);
-        fatrecipe.setText(fatres);
-        ch2orecipe.setText(ch2ores);
+        calrecipe.setText(calres+"");
+        prorecipe.setText(prores+"");
+        fatrecipe.setText(fatres+"");
+        ch2orecipe.setText(ch2ores+"");
 
 
-        for(int i=0;i<foodnum;i++)
+        for(int i = 0; i< food_num; i++)
         {
             tablerow[i].setVisibility(View.VISIBLE);
-            foodname[i].setText(foodnamestring[i]);
-            foodweight[i].setText(foodnamestring[i]);
+            foodname[i].setText(food_name[i]);
+            foodweight[i].setText(food_wei[i]+"");
         }
 
-        for(int i=foodnum;i<5;i++)
+        for(int i = food_num; i<5; i++)
         {
             tablerow[i].setVisibility(View.INVISIBLE);
         }

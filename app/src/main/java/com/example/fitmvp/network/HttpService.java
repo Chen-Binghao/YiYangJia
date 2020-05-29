@@ -10,6 +10,7 @@ import com.example.fitmvp.bean.NutriBean;
 import com.example.fitmvp.bean.PhotoType1Bean;
 import com.example.fitmvp.bean.PhotoTypetBean;
 import com.example.fitmvp.bean.PredictionBean;
+import com.example.fitmvp.bean.Recipebean;
 import com.example.fitmvp.bean.RecordBean;
 import com.example.fitmvp.bean.RegisterUserBean;
 
@@ -65,6 +66,11 @@ public interface HttpService {
     @FormUrlEncoded
     Observable<PhotoTypetBean> multifood(@Field("tel")String tel, @Field("obj_type")Integer obj_type,
                                          @Field("img")String img, @Field("plate_type")Integer ptype);
+
+    //获得推荐食谱
+    @POST("/user/getRecipe")
+    @FormUrlEncoded
+    Observable<List<Recipebean>> getRecipe(@Field("tel")String tel);
 
     //人工修改后的多种食物信息传输
     @POST("/user/foodInfo")

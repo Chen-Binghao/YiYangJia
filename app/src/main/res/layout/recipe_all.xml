@@ -423,7 +423,7 @@
                     <TableRow
                         android:id="@+id/table1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="9dp"
                         android:layout_margin="5dp"
                         android:gravity="center">
 
@@ -432,21 +432,22 @@
                             android:id="@+id/foodname1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black33"
-                            android:text="food1" />
+                            android:text="food1"
+                            android:textColor="@color/black33" />
 
                         <TextView
                             android:id="@+id/foodweight1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="80dp"
+                            android:textAlignment="textEnd"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black33"/>
+                            android:textColor="@color/black33" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black33"
                             android:layout_marginStart="3dp"
-                            android:text="克" />
+                            android:text="克"
+                            android:textColor="@color/black33" />
                     </TableRow>
 
                     <TableRow
@@ -466,7 +467,8 @@
 
                         <TextView
                             android:id="@+id/foodweight2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="80dp"
+                            android:textAlignment="textEnd"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black33"/>
 
@@ -495,7 +497,8 @@
 
                         <TextView
                             android:id="@+id/foodweight3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="80dp"
+                            android:textAlignment="textEnd"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black33"/>
 
@@ -524,7 +527,8 @@
 
                         <TextView
                             android:id="@+id/foodweight4"
-                            android:layout_width="wrap_content"
+                            android:layout_width="80dp"
+                            android:textAlignment="textEnd"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black33"/>
 
@@ -553,7 +557,8 @@
 
                         <TextView
                             android:id="@+id/foodweight5"
-                            android:layout_width="wrap_content"
+                            android:layout_width="80dp"
+                            android:textAlignment="textEnd"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black33"/>
 

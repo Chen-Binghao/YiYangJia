@@ -1,5 +1,6 @@
 package com.example.fitmvp.view.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -253,9 +255,47 @@ public class PhotoShow extends AppCompatActivity{
                 .subscribe(new CommonObserver<String>() {
                     @Override
                     public void onNext(String response) {
-                        System.out.println(response);//返回了"1"
+                        System.out.println(response);//返回
                         // 更新主页和记录页面
                         updateRecords();
+                        int tmp=Integer.parseInt(response);
+                        Log.i("11111111111111111111111111111111111111", "onNext: "+response);
+                        String text = "您今日";
+
+                        if(tmp>0) {
+                            if (tmp >= 8) {
+                                text = text + "碳水化合物 ";
+                                tmp -= 8;
+                            }
+                            if (tmp >= 4) {
+                                text = text + "脂肪 ";
+                                tmp -= 4;
+                            }
+                            if (tmp >= 2) {
+                                text = text + "蛋白质 ";
+                                tmp -= 2;
+                            }
+                            if (tmp >= 1) {
+                                text = text + "卡路里 ";
+                                tmp -= 1;
+                            }
+                            text = text + "摄入严重超标！";
+                            androidx.appcompat.app.AlertDialog alertDialog2 = new androidx.appcompat.app.AlertDialog.Builder(PhotoShow.this)
+                                    .setMessage(text)
+                                    .setIcon(R.mipmap.ic_launcher)
+                                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {//添加"Yes"按钮
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            toSave();
+                                        }
+                                    })
+                                    .create();
+                            alertDialog2.show();
+                        }
+                        else
+                        {
+                            toSave();
+                        }
                     }
                     @Override
                     public void onError(ApiException e){
@@ -264,7 +304,7 @@ public class PhotoShow extends AppCompatActivity{
                     }
                 });
 
-        toSave();
+        //toSave();
     }
     public void toSave(){
         byte[] pic1=PictureUtil.Bitmap2Bytes(bitmap);
@@ -277,7 +317,7 @@ public class PhotoShow extends AppCompatActivity{
         intent.putExtra("fat1",fat1);
         intent.putExtra("carbo1",carbo1);
         wait_show.setVisibility(View.INVISIBLE);
-        startActivity(intent);
+        //startActivity(intent);
         finish();
     }
 
