@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitmvp.R;
 import com.example.fitmvp.base.BaseFragment;
@@ -73,10 +74,10 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
     private String oldfat;
     private String oldpro;
     private String oldch2o;
-    private int calres;
-    private int fatres;
-    private int prores;
-    private int ch2ores;
+    private Double calres;
+    private Double fatres;
+    private Double prores;
+    private Double ch2ores;
     private String[] food_name;
     private double[] food_cal;
     private double[] food_pro;
@@ -170,20 +171,25 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
         switch (view.getId()){
             case R.id.button_gen_recipe:
                 getrecipe(view);
-                break;
+                return;
             case R.id.table1:
                 t=0;
+                break;
             case R.id.table2:
                 t=1;
+                break;
             case R.id.table3:
                 t=2;
+                break;
             case R.id.table4:
                 t=3;
+                break;
             case R.id.table5:
                 t = 4;
-                showPopupWindow(view,food_cal[t]*food_wei[t]/100,food_pro[t]*food_wei[t]/100,food_fat[t]*food_wei[t]/100,food_ch2o[t]*food_wei[t]/100);
                 break;
         }
+        //                showPopupWindow(view,food_cal[t]*food_wei[t]/100,food_pro[t]*food_wei[t]/100,food_fat[t]*food_wei[t]/100,food_ch2o[t]*food_wei[t]/100);
+        showPopupWindow(view, food_cal[t], food_pro[t], food_fat[t], food_ch2o[t]);
     }
 
     private void showPopupWindow(View view,double cal,double pro,double fat,double ch2o) {
@@ -248,10 +254,10 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
     private void getrecipe(View view) {
 
 
-        calres=0;
-        prores=0;
-        ch2ores=0;
-        fatres=0;
+        calres=0.0;
+        prores=0.0;
+        ch2ores=0.0;
+        fatres=0.0;
         SpUtils spUtils = new SpUtils();
         String tel = (String)spUtils.get("phone","");
         if(tel==null || tel.equals("")){
@@ -284,11 +290,33 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
                                 food_pro[i]=list.get(i).getProtein();
                                 food_wei[i]=list.get(i).getWeight();
                                 food_name[i]=list.get(i).getName();
-                                calres+=food_cal[i];
-                                prores+=food_pro[i];
-                                ch2ores+=food_ch2o[i];
-                                fatres+=food_fat[i];
+                                calres+=food_cal[i]*food_wei[i]/100;
+                                prores+=food_pro[i]*food_wei[i]/100;
+                                ch2ores+=food_ch2o[i]*food_wei[i]/100;
+                                fatres+=food_fat[i]*food_wei[i]/100;
                             }
+
+                            recipe.setVisibility(View.VISIBLE);
+                            table.setVisibility(View.VISIBLE);
+
+                            calrecipe.setText(calres+"");
+                            prorecipe.setText(prores+"");
+                            fatrecipe.setText(fatres+"");
+                            ch2orecipe.setText(ch2ores+"");
+
+
+                            for(int i = 0; i< food_num; i++)
+                            {
+                                tablerow[i].setVisibility(View.VISIBLE);
+                                foodname[i].setText(food_name[i]);
+                                foodweight[i].setText(food_wei[i]+"");
+                            }
+
+                            for(int i = food_num; i<5; i++)
+                            {
+                                tablerow[i].setVisibility(View.INVISIBLE);
+                            }
+
                         }
 
                         @Override
@@ -299,36 +327,31 @@ public class FragmentRecipe extends BaseFragment<RecipePresenter> implements Rec
                     });
         }
 
-        button_gen.setVisibility(View.INVISIBLE);
-        progressbar.setVisibility(View.VISIBLE);
-
-
-        String[] foodnamestring={"米饭","排骨","青菜"};
-        int[] foodweightnum={1,2,3};
-
-        progressbar.setVisibility(View.INVISIBLE);
-        button_gen.setVisibility(View.VISIBLE);
-        recipe.setVisibility(View.VISIBLE);
-        table.setVisibility(View.VISIBLE);
-
-
-        calrecipe.setText(calres+"");
-        prorecipe.setText(prores+"");
-        fatrecipe.setText(fatres+"");
-        ch2orecipe.setText(ch2ores+"");
-
-
-        for(int i = 0; i< food_num; i++)
-        {
-            tablerow[i].setVisibility(View.VISIBLE);
-            foodname[i].setText(food_name[i]);
-            foodweight[i].setText(food_wei[i]+"");
-        }
-
-        for(int i = food_num; i<5; i++)
-        {
-            tablerow[i].setVisibility(View.INVISIBLE);
-        }
+//        button_gen.setVisibility(View.INVISIBLE);
+//        progressbar.setVisibility(View.VISIBLE);
+//
+//        progressbar.setVisibility(View.INVISIBLE);
+//        button_gen.setVisibility(View.VISIBLE);
+//        recipe.setVisibility(View.VISIBLE);
+//        table.setVisibility(View.VISIBLE);
+//
+//        calrecipe.setText(calres+"");
+//        prorecipe.setText(prores+"");
+//        fatrecipe.setText(fatres+"");
+//        ch2orecipe.setText(ch2ores+"");
+//
+//
+//        for(int i = 0; i< food_num; i++)
+//        {
+//            tablerow[i].setVisibility(View.VISIBLE);
+//            foodname[i].setText(food_name[i]);
+//            foodweight[i].setText(food_wei[i]+"");
+//        }
+//
+//        for(int i = food_num; i<5; i++)
+//        {
+//            tablerow[i].setVisibility(View.INVISIBLE);
+//        }
 
 
 
