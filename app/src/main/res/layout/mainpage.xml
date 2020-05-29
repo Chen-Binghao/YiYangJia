@@ -28,15 +28,23 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        <com.example.fitmvp.view.draw.CalorieCircle
-            android:id="@+id/calCircle"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="bottom|center|fill"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimaryLight"
-            android:foregroundGravity="center_vertical"
-            android:visibility="gone" />
+            android:orientation="horizontal">
+
+            <com.example.fitmvp.view.draw.CalorieCircle
+                android:id="@+id/calCircle"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="25dp"
+                android:background="@color/colorPrimaryLight"
+                />
+
+        </RelativeLayout>
+
+
 
         <LinearLayout
             android:id="@+id/zero_cal"
